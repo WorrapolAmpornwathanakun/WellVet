@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      wellVet
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="showDetail()">
+          <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+ 
+<ion-content class="home" padding>
+  <ion-list inset>
+		<h3>Welcome, {{username}}!</h3>
+		<ion-item>
+			<div item-left><b>Pet's Name</b></div>
+			<div item-right><b>Birthday</b></div>
+			<div item-right><b>Type</b></div>
+		</ion-item>
+        <ion-item *ngFor="let birthday of birthdays" (click)="showDetail(birthday)">
+			<div item-left>{{ birthday.Name }}</div>
+			<div item-right>{{ birthday.Date | date:'yMMMMd' }}</div>
+			<div item-right>({{ birthday.Type }})</div>
+        </ion-item>
+  </ion-list>
+  <button ion-button color="danger" class="submit-btn" full (click)="logout()">Logout</button>
+</ion-content>

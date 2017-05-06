@@ -1,0 +1,45 @@
+<ion-header>  
+  <ion-navbar>
+    <ion-title>{{ action }} Pet</ion-title>
+    <ion-buttons end *ngIf="!isNew">
+      <button ion-button (click)="delete()">
+          <ion-icon name="trash"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>  
+    <ion-list>
+        <ion-item>
+            <ion-label>Pet's Name:</ion-label>
+            <ion-input text-right type="text" placeholder="Pet's Name" [(ngModel)]="birthday.Name"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>Birthday:</ion-label>
+            <ion-datetime text-right displayFormat="MMMM D, YYYY" pickerFormat="MMMM D YYYY" placeholder="Birthday" [(ngModel)]="isoDate"></ion-datetime>
+        </ion-item>
+		<ion-item>
+            <ion-label>Type:</ion-label>
+            <ion-input text-right type="text" placeholder="e.g. Dog" [(ngModel)]="birthday.Type"></ion-input>
+        </ion-item>
+		<ion-item>
+            <ion-label>Breed:</ion-label>
+            <ion-input text-right type="text" placeholder="Breed" [(ngModel)]="birthday.Breed"></ion-input>
+        </ion-item>
+		<ion-item>
+            <ion-label>Gender:</ion-label>
+            <ion-select interface="popover" text-right placeholder="Select" [(ngModel)]="birthday.Gender">
+				<ion-option>Male</ion-option>
+				<ion-option>Female</ion-option>
+				<ion-option>Other</ion-option>
+			</ion-select>
+        </ion-item>
+		<ion-item>
+            <ion-label>Weight:</ion-label>
+            <ion-input text-right type="number" min="1" placeholder="Weight (kg)" [(ngModel)]="birthday.Weight"></ion-input> kg
+        </ion-item>
+    </ion-list>
+    <button ion-button class="save-btn" block (click)="save()">Save</button>
+	<button ion-button color="danger" class="save-btn" block (click)="dismiss()">Cancel</button>
+</ion-content> 
